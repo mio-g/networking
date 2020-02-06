@@ -1,6 +1,6 @@
 # TCP/IP basics 
 
-
+---
 
 ## Agenda
 
@@ -10,9 +10,15 @@
 * Advance routing
 * DNS
 
+---
+
+## OSI Layers model
+<img src="./media/d.jpg" width="700" height="500" />
 
 
-## The layer model 
+---
+
+## The layers model 
 
 Layer | Function            | protocols
 ----- |:------------------- |:------------------
@@ -21,9 +27,11 @@ Layer | Function            | protocols
 2     | Internet            | IP (v4 and v6) ICMP
 1     | Link                | MAC(Ethernet, wifi...)
 
+---
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/UDP_encapsulation.svg/390px-UDP_encapsulation.svg.png)
 
+---
 
 ### Basic principles:
 
@@ -32,6 +40,7 @@ Layer | Function            | protocols
 * Lower layers are abstract, so every layer "feel" it talks with the peer layer
   directly.  
 
+---
 
 ## 2nd layer IP protocol 
 
