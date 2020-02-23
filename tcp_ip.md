@@ -39,18 +39,55 @@ Layer | Function            | protocols
 Note:
 An early architectural document, RFC 1122, emphasizes architectural principles over layering.[30] RFC 1122, titled Host Requirements, is structured in paragraphs referring to layers, but the document refers to many other architectural principles and does not emphasize layering. It loosely defines a four-layer model, with the layers having names, not numbers, as follows:
 ---
-## phy
-(Out of scope)
+Lets start from the bottom
+---
+### Ethernet protocol
+* Invented by Xerox PARC labs (1973)
+* Became industry de-facto standard
+* Moved from a single bus to hub/switch
+* Use MAC address (used by other protocols such as wi-fi)
+----
+## phy 
+Hub | Repeater | bridge*
 
+<img src="./media/reppeter.jpg" width="400" height="200" />
 <img src="./media/network-hub-500x500.jpg" width="400" height="200" />
 <img src="./media/soundgrid-br1.png" width="600" height="200" />
 ----
-## Link Layer
+## Data Link Layer
 (MAC layer)
 
-<img src="./media/2550T-PWR-Front.jpg" width="800" height="200" />
-----
+Switch
 
+<img src="./media/2550T-PWR-Front.jpg" width="800" height="200" />
+Note:
+Coaxial cable to hub/reppiter (phy layer) to bridge/switch (link layer)
+----
+Flood and learn
+* Used in transparent bridging 
+* Populate and update the "forward information base" table
+----
+## STP & FSTP
+<img src="./media/Spanning_tree_protocol_at_work_5.svg.png" width="400" height="200" />
+<img src="./media/Spanning_tree_protocol_at_work_6.svg.png" width="400" height="200" />
+
+* Bridges use spacial frames to communicate (Bridge Protocol Data Unit)
+* Every network has a root bridge
+----
+## SPB
+----
+## ARP
+### Address Resolution Protocol
+
+Update the cache MAC-to-IP table
+* Link receive packets addressed to its own MAC
+and to `ff:ff:ff:ff:ff:ff` (all 1) - broadcast address (Ethernet rules)
+* Link can announce its oun IP address
+Note:
+Never routed outside the local network (So it is in the link layer)
+----
+## 
+----
 ### The Link
 ```bash
  ip link show
@@ -77,21 +114,13 @@ qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
 ```
 4: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc fq_codel \
 master virbr0 state DOWN mode DEFAULT group default qlen 1000
-    link/ether 52:54:00:62:33:42 brd ff:ff:ff:ff:ff:ff
+    link/ether 52:54:00:62:33:42 brd ff:ff:ff:ff:ff:ffZe
 ```
 Note:
 MAC address was originally burned into the physical device
 Every vendor got a segment of addresses to ensure globally uniques
 
 ----
-## ARP
-### Address Resolution Protocol
-Update the cache MAC-to-IP table
-* Link receive packets addressed to its out MAC
-and to `ff:ff:ff:ff:ff:ff` (all 1) - broadcast address
-* Link can announce its oun IP address
-Note:
-Never routed outside the local network (So it is in the link layer)
 ----
 ## vlan
 
