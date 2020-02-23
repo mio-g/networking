@@ -67,12 +67,13 @@ Flood and learn
 * Used in transparent bridging 
 * Populate and update the "forward information base" table
 ----
-## STP & FSTP
+## STP & RSTP
 <img src="./media/Spanning_tree_protocol_at_work_5.svg.png" width="400" height="200" />
 <img src="./media/Spanning_tree_protocol_at_work_6.svg.png" width="400" height="200" />
 
 * Bridges use spacial frames to communicate (Bridge Protocol Data Unit)
 * Every network has a root bridge
+* MAC 01:80:C2:00:00:00 (STP multicast)
 ----
 ## SPB
 ----
